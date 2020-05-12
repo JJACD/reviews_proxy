@@ -10,7 +10,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-
+/* Review queries */
+app.get('/reviews', (req, res) => {
+  axios.get('http://http://localhost:9000/reviews')
+  .then(({data}) => res.status(200).send(data).end())
+  .catch((err) => res.status(400).send(err).end())
+})
 
 
 
