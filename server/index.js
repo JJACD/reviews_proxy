@@ -4,10 +4,11 @@ const port = 3000
 const path = require('path')
 const cors = require('cors')
 const axios = require('axios')
+const bodyParser = require('body-parser')
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 /* Review queries */
@@ -15,4 +16,4 @@ app.use(express.static(path.join(__dirname, '../client/dist')));
 
 
 
-app.listen(port, () => console.log(`istening on http://localhost:${port}`))
+app.listen(port, () => console.log(`listening on http://localhost:${port}`))
